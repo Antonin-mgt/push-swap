@@ -101,3 +101,23 @@ func TestEstTriee(t *testing.T) {
 		t.Errorf("une pile vide devrait être considérée comme triée")
 	}
 }
+
+func TestPositionDuMinimum(t *testing.T) {
+	piles := &Piles{A: []int{3, 1, 2}}
+	minIndex := piles.positionDuMinimum()
+	if minIndex != 1 {
+		t.Errorf("index du minimum incorrect : obtenu %d, attendu 1", minIndex)
+	}
+
+	piles = &Piles{A: []int{1, 2, 3}}
+	minIndex = piles.positionDuMinimum()
+	if minIndex != 0 {
+		t.Errorf("index du minimum incorrect : obtenu %d, attendu 0", minIndex)
+	}
+
+	piles = &Piles{A: []int{2, 3, 1}}
+	minIndex = piles.positionDuMinimum()
+	if minIndex != 2 {
+		t.Errorf("index du minimum incorrect : obtenu %d, attendu 2", minIndex)
+	}
+}
