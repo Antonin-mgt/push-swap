@@ -121,3 +121,30 @@ func TestPositionDuMinimum(t *testing.T) {
 		t.Errorf("index du minimum incorrect : obtenu %d, attendu 2", minIndex)
 	}
 }
+
+func TestTrier(t *testing.T) {
+	piles := &Piles{A: []int{5, 2, 9, 1, 7}, B: []int{}}
+	piles.Trier()
+
+	attenduA := []int{1, 2, 5, 7, 9}
+	attenduB := []int{}
+
+	if len(piles.A) != len(attenduA) {
+		t.Errorf("taille incorrecte : obtenu %v, attendu %v", piles.A, attenduA)
+		return
+	}
+	for i := range attenduA {
+		if piles.A[i] != attenduA[i] {
+			t.Errorf("case %d incorrecte : obtenu %v, attendu %v", i, piles.A, attenduA)
+		}
+	}
+	if len(piles.B) != len(attenduB) {
+		t.Errorf("taille incorrecte : obtenu %v, attendu %v", piles.B, attenduB)
+		return
+	}
+	for i := range attenduB {
+		if piles.B[i] != attenduB[i] {
+			t.Errorf("case %d incorrecte : obtenu %v, attendu %v", i, piles.B, attenduB)
+		}
+	}
+}

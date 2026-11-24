@@ -17,5 +17,8 @@ func main() {
 		return
 	}
 	p := &piles.Piles{A: nombres}
-	fmt.Println(p.A)
+	p.Trier()
+	for _, instruction := range p.Operations {
+		fmt.Println(instruction)
+	}
 }

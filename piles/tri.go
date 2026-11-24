@@ -12,3 +12,16 @@ func (p *Piles) positionDuMinimum() int {
 	}
 	return minIndex
 }
+
+func (p *Piles) Trier() {
+	for !p.EstTriee() {
+		pos := p.positionDuMinimum()
+		for i := 0; i < pos; i++ {
+			p.Ra()
+		}
+		p.Pb()
+	}
+	for len(p.B) > 0 {
+		p.Pa()
+	}
+}
