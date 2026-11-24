@@ -22,7 +22,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		ligne := scanner.Text()
-	if ligne == "" {
+		if ligne == "" {
 			continue
 		}
 		if !executer(p, ligne) {
