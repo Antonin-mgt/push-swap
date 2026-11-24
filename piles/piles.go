@@ -101,3 +101,13 @@ func (p *Piles) Rrr() {
 	}
 	p.Operations = append(p.Operations, "rrr")
 }
+
+func (p *Piles) EstTriee() bool {
+
+	for i := 0; i < len(p.A)-1; i++ {
+		if p.A[i] > p.A[i+1] {
+			return false
+		}
+	}
+	return true
+}

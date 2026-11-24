@@ -84,3 +84,20 @@ func TestSs(t *testing.T) {
 		}
 	}
 }
+
+func TestEstTriee(t *testing.T) {
+	piles := &Piles{A: []int{1, 2, 3}, B: []int{}}
+	if !piles.EstTriee() {
+		t.Errorf("la pile A devrait être triée")
+	}
+
+	piles = &Piles{A: []int{3, 2, 1}, B: []int{}}
+	if piles.EstTriee() {
+		t.Errorf("la pile A ne devrait pas être triée")
+	}
+
+	piles = &Piles{A: []int{}, B: []int{}}
+	if !piles.EstTriee() {
+		t.Errorf("une pile vide devrait être considérée comme triée")
+	}
+}

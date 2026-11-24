@@ -18,18 +18,26 @@ func main() {
 		return
 	}
 	p := &piles.Piles{A: nombres}
-	fmt.Println(p.A)
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		ligne := scanner.Text()
+	if ligne == "" {
+			continue
+		}
 		if !executer(p, ligne) {
 			fmt.Fprintln(os.Stderr, "Error")
 			return
 		}
 	}
 	if err := scanner.Err(); err != nil {
+		fmt.Fprintln(os.Stderr, "Error")
 		return
+	}
+	if p.EstTriee() && len(p.B) == 0 {
+		fmt.Println("OK")
+	} else {
+		fmt.Println("KO")
 	}
 }
 
