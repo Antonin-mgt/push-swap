@@ -7,6 +7,8 @@ import (
 	"push-swap/piles"
 )
 
+// main lit les nombres en argument, trie la pile A et affiche
+// les instructions utilisées, une par ligne. Une entrée invalide affiche Error.
 func main() {
 	if len(os.Args) < 2 {
 		return
@@ -18,6 +20,7 @@ func main() {
 	}
 	p := &piles.Piles{A: nombres}
 	p.Trier()
+	// On affiche chaque instruction enregistrée pendant le tri.
 	for _, instruction := range p.Operations {
 		fmt.Println(instruction)
 	}
