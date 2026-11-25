@@ -16,8 +16,14 @@ func (p *Piles) positionDuMinimum() int {
 func (p *Piles) Trier() {
 	for !p.EstTriee() {
 		pos := p.positionDuMinimum()
-		for i := 0; i < pos; i++ {
-			p.Ra()
+		if pos <= len(p.A)/2 {
+			for i := 0; i < pos; i++ {
+				p.Ra()
+			}
+		} else {
+			for i := 0; i < len(p.A)-pos; i++ {
+				p.Rra()
+			}
 		}
 		p.Pb()
 	}
